@@ -548,8 +548,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
   font-weight: 500;
 }
 .stamp__ring { transform-box: view-box; transform-origin: 50% 50%; animation: spin 48s linear infinite; }
-.stamp__cup { fill: var(--cream); stroke: var(--cream); }
-.stamp__cup path:first-child { stroke: var(--ochre); }
+.stamp__cup-rim { fill: var(--cream); }
+.stamp__cup-coffee { fill: var(--terracotta-deep); }
+.stamp__cup-foam { fill: var(--cream); }
 
 @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -900,7 +901,84 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .menu-list .item { break-inside: avoid; padding-bottom: 32px; }
 }
 
-/* 10. 03 This week --------------------------------------------------------- */
+/* 10. 03 The pour --------------------------------------------------------- */
+.pour__intro { display: grid; gap: 24px; margin-bottom: clamp(40px, 5vw, 72px); }
+.pour__intro h2 { font-size: var(--step-4); max-width: 13ch; }
+.pour__copy p:first-child { max-width: 32rem; color: var(--ink-soft); }
+.pour__spec {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.pour__spec span { padding: 6px 14px 5px; border: 1px solid var(--rule-strong); margin: 0 -1px -1px 0; }
+.pour__link {
+  display: inline-flex;
+  gap: 8px;
+  margin-top: 22px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--cobalt);
+  text-decoration: none;
+  border-bottom: 1.5px solid currentColor;
+  padding-bottom: 2px;
+}
+.pour__link:hover { color: var(--ink); }
+
+.pour__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px 16px;
+}
+.latte figure { display: grid; justify-items: center; text-align: center; }
+.latte__cup {
+  width: 100%;
+  max-width: 290px;
+  height: auto;
+  transition: transform 0.9s var(--ease);
+}
+.latte:hover .latte__cup { transform: rotate(-10deg); }
+.latte__caption { display: grid; justify-items: center; gap: 4px; margin-top: 14px; max-width: 19rem; }
+.latte__num { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--terracotta-deep); }
+.latte__name { font-family: var(--font-display); font-size: clamp(1.25rem, 1.05rem + 0.6vw, 1.625rem); line-height: 1.15; }
+.latte__line-text { font-size: 0.9375rem; line-height: 1.5; color: var(--ink-soft); text-wrap: pretty; }
+.latte__by {
+  margin-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+/* the pour: foam blooms out of the crema once, as the cup scrolls in */
+.latte__foam, .latte__halo { transform-box: fill-box; transform-origin: 50% 50%; }
+.js .latte[data-reveal].is-pending { opacity: 1; transform: none; }
+.js .latte .latte__halo { transition: transform 1.4s var(--ease) calc(var(--i) * 0.12s + 0.1s); }
+.js .latte .latte__foam {
+  transition: transform 1.5s cubic-bezier(0.16, 0.84, 0.24, 1) calc(var(--i) * 0.12s + 0.25s),
+              opacity 0.5s ease calc(var(--i) * 0.12s + 0.25s);
+}
+.js .latte .latte__etch { transition: opacity 0.4s ease calc(var(--i) * 0.12s + 1.2s); }
+.js .latte .latte__line { stroke-dasharray: 1; stroke-dashoffset: 0; transition: stroke-dashoffset 1s ease calc(var(--i) * 0.12s + 1.3s); }
+.js .latte.is-pending .latte__halo { transform: scale(0.45); }
+.js .latte.is-pending .latte__foam { opacity: 0; transform: scale(0.1) rotate(-140deg); }
+.js .latte.is-pending .latte__line { stroke-dashoffset: 1; }
+.js .latte.is-pending .latte__etch { opacity: 0; }
+.shot .latte.is-pending .latte__halo,
+.shot .latte.is-pending .latte__foam { opacity: 1; transform: none; transition: none; }
+.shot .latte.is-pending .latte__line { stroke-dashoffset: 0; transition: none; }
+.shot .latte.is-pending .latte__etch { opacity: 1; transition: none; }
+
+@media (min-width: 900px) {
+  .pour__intro { grid-template-columns: minmax(0, 1fr) minmax(0, 30rem); align-items: end; gap: 48px; }
+  .pour__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 64px 40px; }
+}
+
+/* 10b. 04 This week ---------------------------------------------------- */
 .specials { background: var(--cobalt); color: var(--cream); }
 .specials__intro { display: grid; gap: 20px; margin-bottom: clamp(36px, 4vw, 56px); }
 .specials__intro h2 { font-size: var(--step-4); max-width: 12ch; }
