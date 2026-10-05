@@ -1107,6 +1107,229 @@ button, input, select, textarea { font: inherit; color: inherit; }
   .step__art { width: 128px; padding: 14px; }
 }
 
+/* 11b. 06 On the walls ---------------------------------------------------- */
+.walls__intro { display: grid; gap: 24px; margin-bottom: clamp(36px, 4vw, 56px); }
+.walls__intro h2 { font-size: var(--step-4); max-width: 11ch; }
+.walls__copy p { max-width: 30rem; color: var(--ink-soft); }
+.walls__copy .walls__aside {
+  margin-top: 14px;
+  font-size: 0.9375rem;
+  font-style: italic;
+  color: var(--ink-muted);
+}
+
+.gallery {
+  --unit: 0.82px;
+  position: relative;
+  container-type: inline-size;
+}
+.gallery__wall { display: none; }
+.gallery__show {
+  display: grid;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+.gallery__show-title { font-family: var(--font-display); font-size: 1.75rem; line-height: 1.05; }
+.gallery__show-sub {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.gallery__hint {
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--terracotta-deep);
+}
+
+/* phones: a swipeable row of frames, each on its own patch of wall */
+.gallery__works {
+  display: flex;
+  gap: 14px;
+  margin-inline: calc(var(--gutter) * -1);
+  padding: 4px var(--gutter) 18px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: var(--gutter);
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+}
+.work {
+  flex: 0 0 min(80%, 340px);
+  scroll-snap-align: start;
+  display: grid;
+  grid-template-rows: 300px auto;
+  background: #EBE1CC;
+  border-top: 6px solid #7A5236;
+}
+.work__frame {
+  align-self: center;
+  justify-self: center;
+  display: block;
+  position: relative;
+  width: min(calc(var(--w) * var(--unit)), 80%);
+  padding: calc(var(--f) * var(--unit));
+  background: var(--frame, #1C1A17);
+  box-shadow: calc(6 * var(--unit)) calc(8 * var(--unit)) 0 rgba(96, 66, 32, 0.16);
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+.work__mat {
+  display: block;
+  padding: calc(var(--m) * var(--unit));
+  background: #FBF8F2;
+}
+.work__mat img { width: 100%; height: auto; aspect-ratio: var(--ar); }
+.work__frame:hover { transform: translateY(-3px); box-shadow: calc(9 * var(--unit)) calc(13 * var(--unit)) 0 rgba(96, 66, 32, 0.16); }
+.work__frame:focus-visible { outline-offset: 5px; }
+
+.work--riso  { --frame: #1C1A17; }
+.work--lino  { --frame: #B98A55; }
+.work--lino .work__frame { box-shadow: inset 0 0 0 2px #8A6234, calc(6 * var(--unit)) calc(8 * var(--unit)) 0 rgba(96, 66, 32, 0.16); }
+.work--block { --frame: var(--cobalt); }
+.work--block .work__mat, .work--oil .work__mat, .work--tile .work__mat { background: none; }
+.work--tile  { --frame: #3A2A1E; }
+.work--tile .work__frame { box-shadow: calc(10 * var(--unit)) calc(12 * var(--unit)) 0 rgba(96, 66, 32, 0.18); }
+.work--water { --frame: #F7F3EA; }
+.work--water .work__frame { box-shadow: inset 0 0 0 1px #CFC4AE, calc(6 * var(--unit)) calc(8 * var(--unit)) 0 rgba(96, 66, 32, 0.16); }
+.work--oil   { --frame: #D39A2A; }
+.work--oil .work__frame,
+.work--oil .work__mat { border-radius: 50%; }
+.work--oil .work__frame { box-shadow: inset 0 0 0 2px #A86F12, inset 0 0 0 5px #E8BC58, calc(6 * var(--unit)) calc(8 * var(--unit)) 0 rgba(96, 66, 32, 0.16); }
+.work--oil .work__mat { overflow: hidden; }
+.work--oil .work__mat img { display: block; }
+
+.work__label {
+  padding: 16px 18px 20px;
+  background: var(--paper);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+.work__num { font-family: var(--font-mono); font-size: 0.6875rem; letter-spacing: 0.1em; color: var(--terracotta-deep); }
+.work__artist { margin-top: 4px; font-weight: 600; }
+.work__artist span { display: block; font-weight: 400; color: var(--ink-muted); font-size: 0.8125rem; }
+.work__title { margin-top: 6px; }
+.work__title cite { font-style: italic; }
+.work__medium { margin-top: 6px; color: var(--ink-soft); font-size: 0.8125rem; }
+.work__price {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+}
+.work__dot { width: 9px; height: 9px; border-radius: 50%; border: 1px solid var(--ink-muted); }
+.work__dot--sold { background: #C8102E; border-color: #C8102E; }
+
+/* larger screens: hang the whole show, salon-style, on the illustrated wall */
+@media (min-width: 900px) {
+  .gallery { --unit: calc(100cqw / 1320); }
+  .gallery__wall { display: block; width: 100%; height: auto; }
+  .gallery__show {
+    position: absolute;
+    left: calc(684 * var(--unit));
+    top: calc(392 * var(--unit));
+    width: calc(320 * var(--unit));
+    margin: 0;
+  }
+  .gallery__show-title { font-size: calc(44 * var(--unit)); }
+  .gallery__show-sub { font-size: max(10px, calc(12 * var(--unit))); }
+  .gallery__hint { display: none; }
+  .gallery__works {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0 24px;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    border-top: 1px solid var(--ink);
+  }
+  .work { display: contents; }
+  .work__frame {
+    position: absolute;
+    left: calc(var(--x) * var(--unit));
+    top: calc(var(--y) * var(--unit));
+    width: calc(var(--w) * var(--unit));
+  }
+  .work__frame::after {
+    content: attr(data-num);
+    position: absolute;
+    right: 0;
+    bottom: calc(-22 * var(--unit));
+    font-family: var(--font-mono);
+    font-size: max(10px, calc(11 * var(--unit)));
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+  }
+  .work--oil .work__frame::after { right: 50%; transform: translateX(50%); }
+  .work__label { padding: 18px 0 22px; background: none; border-bottom: 1px solid var(--rule); }
+}
+@media (min-width: 1200px) {
+  .gallery__works { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+}
+
+/* lightbox */
+.lightbox {
+  width: min(1080px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  padding: 0;
+  border: 0;
+  background: var(--paper);
+  color: var(--ink);
+}
+.lightbox::backdrop { background: rgba(28, 26, 23, 0.82); }
+.lightbox__inner { position: relative; display: grid; }
+.lightbox__art {
+  display: grid;
+  place-items: center;
+  padding: clamp(24px, 4vw, 48px);
+  background: #EBE1CC;
+}
+.lightbox__art img { width: auto; height: auto; max-width: 100%; max-height: min(64dvh, 620px); box-shadow: 8px 10px 0 rgba(96, 66, 32, 0.16); }
+.lightbox__caption { padding: 24px clamp(20px, 3vw, 36px) 28px; }
+.lightbox__num { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; color: var(--terracotta-deep); }
+.lightbox__title { margin-top: 6px; font-size: var(--step-2); font-style: normal; }
+.lightbox__title cite { font-style: normal; }
+.lightbox__artist { margin-top: 8px; font-weight: 600; }
+.lightbox__artist span { display: block; font-weight: 400; color: var(--ink-muted); }
+.lightbox__medium { margin-top: 4px; color: var(--ink-soft); }
+.lightbox__price { display: flex; align-items: center; gap: 8px; margin-top: 12px; font-family: var(--font-mono); font-size: 0.875rem; }
+.lightbox__nav { display: flex; gap: 10px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--rule); }
+.lightbox__step {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  background: none;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+}
+.lightbox__step:hover { background: var(--ink); color: var(--paper); }
+.lightbox__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--paper);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.lightbox__close:hover { background: var(--ink); color: var(--paper); }
+@media (min-width: 820px) {
+  .lightbox__inner { grid-template-columns: minmax(0, 1fr) 300px; }
+  .lightbox__caption { display: flex; flex-direction: column; justify-content: flex-end; }
+}
+
 /* 12. 05 Regulars ---------------------------------------------------------- */
 .regulars { background: var(--ochre); }
 .regulars .section-head__num { color: var(--ink); }

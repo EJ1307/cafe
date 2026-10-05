@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400">
+  <title>Monsoon, Fontainhas — watercolor by Ravi Ferrão</title>
+  <defs>
+    <filter id="wet" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="21" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="9"/>
+    </filter>
+    <filter id="wet2" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5"/>
+    </filter>
+    <filter id="deckle" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.2" numOctaves="2" seed="2" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="5"/>
+    </filter>
+  </defs>
+  <rect width="300" height="400" fill="#EFE6D3"/>
+  <rect x="6" y="6" width="288" height="388" fill="#FCF9F2" filter="url(#deckle)"/>
+  <g filter="url(#wet)">
+    <!-- the wall, a loose ochre wash -->
+    <path d="M30 40C90 26 210 30 270 44C280 140 276 260 268 356C200 368 100 366 34 356C24 260 22 140 30 40Z" fill="#E0A42E" opacity=".55"/>
+    <path d="M40 300C100 310 200 306 262 296V350C200 360 100 360 40 350Z" fill="#C68A1C" opacity=".35"/>
+    <!-- the window opening: grey monsoon sky -->
+    <path d="M86 300V150A64 64 0 0 1 214 150V300Z" fill="#9AA9CF" opacity=".75"/>
+    <path d="M86 170V150A64 64 0 0 1 214 150V170Z" fill="#6F83B8" opacity=".6"/>
+  </g>
+  <g filter="url(#wet2)">
+    <!-- the house across the lane -->
+    <path d="M86 300V214L120 196L160 212L214 200V300Z" fill="#C2532F" opacity=".35"/>
+    <path d="M110 240h12v24h-12ZM146 236h12v28h-12ZM180 232h12v30h-12Z" fill="#7C3A22" opacity=".45"/>
+    <!-- shutters, flung open -->
+    <path d="M44 150H84V300H44Z" fill="#1F3A93" opacity=".72"/>
+    <path d="M216 150H256V300H216Z" fill="#1F3A93" opacity=".72"/>
+    <path d="M50 164H78M50 176H78M50 188H78M50 200H78M50 212H78M50 224H78M50 248H78M50 260H78M50 272H78M50 284H78M222 164H250M222 176H250M222 188H250M222 200H250M222 212H250M222 224H250M222 248H250M222 260H250M222 272H250M222 284H250" stroke="#15296B" stroke-width="2" opacity=".55"/>
+    <!-- sill and a cup left on it -->
+    <path d="M74 300H226V314H74Z" fill="#F3ECDF"/>
+    <path d="M74 314H226V320H74Z" fill="#8A7B66" opacity=".35"/>
+    <path d="M166 286h20c0 9-4 14-10 14s-10-5-10-14Z" fill="#1F3A93" opacity=".85"/>
+    <path d="M186 289c5 0 5 7 0 7" fill="none" stroke="#1F3A93" stroke-width="2" opacity=".85"/>
+  </g>
+  <!-- rain, scratched in fine and fast -->
+  <g stroke="#4F64A0" stroke-width="1.1" stroke-linecap="round" opacity=".55">
+    <path d="M100 120l-8 26M128 104l-8 26M156 98l-8 26M184 104l-8 26M206 124l-8 26M110 170l-8 26M140 160l-8 26M170 166l-8 26M198 176l-8 26M96 220l-6 20M124 214l-8 26M156 224l-8 26M188 216l-8 26M206 250l-6 20M114 262l-8 26M146 270l-6 20M176 262l-8 24"/>
+  </g>
+  <!-- blooms where the water pooled -->
+  <g fill="#6F83B8" opacity=".18"><circle cx="130" cy="140" r="16"/><circle cx="182" cy="190" r="12"/></g>
+  <text x="270" y="378" text-anchor="end" font-family="Georgia, serif" font-style="italic" font-size="9" fill="#8A8273">R. Ferrão</text>
+</svg>

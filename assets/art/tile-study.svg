@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300">
+  <title>Tile Study No. 9 — gouache on panel by Sam Kowalczyk</title>
+  <defs>
+    <filter id="brush" x="-3%" y="-3%" width="106%" height="106%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="5" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="4"/>
+    </filter>
+    <pattern id="birch" width="300" height="12" patternUnits="userSpaceOnUse">
+      <path d="M0 4C60 2 120 6 180 4S260 3 300 5M0 10C80 9 160 11 300 9" fill="none" stroke="#D9C29A" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="300" height="300" fill="#E8D4AC"/>
+  <rect width="300" height="300" fill="url(#birch)"/>
+  <g filter="url(#brush)">
+    <rect x="14" y="14" width="272" height="272" fill="#F3ECDF"/>
+    <!-- row 1 -->
+    <path d="M24 24h82v82A82 82 0 0 1 24 24Z" fill="#1F3A93"/>
+    <g fill="#1F3A93" transform="translate(150 65)">
+      <path d="M0 -36C12 -24 12 -10 0 -2C-12 -10 -12 -24 0 -36Z"/><path d="M0 36C12 24 12 10 0 2C-12 10 -12 24 0 36Z"/>
+      <path d="M-36 0C-24 -12 -10 -12 -2 0C-10 12 -24 12 -36 0Z"/><path d="M36 0C24 -12 10 -12 2 0C10 12 24 12 36 0Z"/>
+    </g>
+    <rect x="194" y="24" width="82" height="82" fill="#E0A42E"/>
+    <path d="M194 106A82 82 0 0 1 276 24V106Z" fill="#F3ECDF"/>
+    <!-- row 2 -->
+    <g fill="none" stroke="#C2532F" stroke-width="7">
+      <path d="M24 194A82 82 0 0 1 106 112"/><path d="M24 172A60 60 0 0 1 84 112"/><path d="M24 150A38 38 0 0 1 62 112"/>
+    </g>
+    <circle cx="150" cy="150" r="38" fill="#1F3A93"/>
+    <circle cx="150" cy="150" r="24" fill="#F3ECDF"/>
+    <circle cx="150" cy="150" r="11" fill="#C2532F"/>
+    <g fill="#1F3A93"><rect x="194" y="116" width="82" height="9"/><rect x="194" y="134" width="82" height="9"/><rect x="194" y="152" width="82" height="9"/><rect x="194" y="170" width="82" height="9"/></g>
+    <!-- row 3 -->
+    <path d="M24 276A41 41 0 0 1 106 276Z" fill="#E0A42E"/>
+    <path d="M110 200H190V280A80 80 0 0 0 110 200Z" fill="#1F3A93"/>
+    <path d="M235 214C252 232 252 254 235 270C218 254 218 232 235 214Z" fill="#C2532F"/>
+    <!-- grid of grout, painted last -->
+    <path d="M108 20V280M192 20V280M20 108H280M20 192H280" stroke="#F3ECDF" stroke-width="5"/>
+  </g>
+</svg>

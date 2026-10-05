@@ -199,6 +199,70 @@
   }
 
   /* ------------------------------------------------------------------
+     On the walls: a lightbox for the artworks. Without JavaScript each
+     frame is a plain link to the full-size image.
+     ------------------------------------------------------------------ */
+  const lightbox = $('[data-lightbox]');
+  const works = $$('[data-work]');
+  if (lightbox && works.length && typeof lightbox.showModal === 'function') {
+    const lbImg = $('[data-lb-img]', lightbox);
+    const fields = {
+      num: $('[data-lb-num]', lightbox),
+      title: $('[data-lb-title]', lightbox),
+      artist: $('[data-lb-artist]', lightbox),
+      medium: $('[data-lb-medium]', lightbox),
+      price: $('[data-lb-price]', lightbox),
+    };
+    let current = 0;
+    let opener = null;
+
+    const show = (index) => {
+      current = (index + works.length) % works.length;
+      const link = works[current];
+      const item = link.closest('.work');
+      const img = $('img', link);
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt;
+      lbImg.width = img.width;
+      lbImg.height = img.height;
+      lbImg.style.aspectRatio = `${img.getAttribute('width')} / ${img.getAttribute('height')}`;
+      lbImg.style.borderRadius = item.classList.contains('work--oil') ? '50%' : '';
+      fields.num.textContent = `${$('.work__num', item).textContent} of ${String(works.length).padStart(2, '0')}`;
+      fields.title.innerHTML = $('.work__title', item).innerHTML;
+      fields.artist.innerHTML = $('.work__artist', item).innerHTML;
+      fields.medium.innerHTML = $('.work__medium', item).innerHTML;
+      fields.price.innerHTML = $('.work__price', item).innerHTML;
+    };
+
+    works.forEach((link, i) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        opener = link;
+        show(i);
+        lightbox.showModal();
+        document.body.classList.add('nav-open');
+        $('[data-lightbox-close]', lightbox).focus();
+      });
+    });
+
+    $('[data-lightbox-close]', lightbox).addEventListener('click', () => lightbox.close());
+    $('[data-lightbox-prev]', lightbox).addEventListener('click', () => show(current - 1));
+    $('[data-lightbox-next]', lightbox).addEventListener('click', () => show(current + 1));
+    lightbox.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+    // a click on the dimmed backdrop (the dialog element itself) closes it
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.close();
+    });
+    lightbox.addEventListener('close', () => {
+      document.body.classList.remove('nav-open');
+      if (opener) opener.focus();
+    });
+  }
+
+  /* ------------------------------------------------------------------
      Reservation form
      ------------------------------------------------------------------ */
   const form = $('[data-reserve-form]');

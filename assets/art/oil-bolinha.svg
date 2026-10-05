@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300">
+  <title>Bolinha, Asleep — oil on board by Nina Barreto</title>
+  <defs>
+    <filter id="paint" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="12" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="6"/>
+    </filter>
+  </defs>
+  <rect width="240" height="300" fill="#C98A1C"/>
+  <g filter="url(#paint)">
+    <!-- background, laid in with broad strokes -->
+    <path d="M-10 -10H250V110C200 92 140 120 80 104S10 82 -10 96Z" fill="#D99A2B"/>
+    <path d="M-10 50C40 40 80 70 140 60S220 30 250 50V130C200 120 150 140 90 130S20 110 -10 120Z" fill="#E3AB3F" opacity=".8"/>
+    <path d="M30 30C60 24 90 38 120 32M140 50C170 44 200 56 226 48M20 92C50 86 70 96 100 90M150 270C180 266 200 272 230 268" fill="none" stroke="#EDBD5A" stroke-width="6" stroke-linecap="round" opacity=".7"/>
+    <!-- cushion -->
+    <path d="M14 214C24 180 76 170 120 172S210 182 226 212C232 242 204 258 120 260S10 246 14 214Z" fill="#1F3A93"/>
+    <path d="M30 222C60 206 100 202 140 204S196 210 212 222" fill="none" stroke="#3A57B0" stroke-width="7" stroke-linecap="round"/>
+    <path d="M36 242C80 248 160 248 204 240" fill="none" stroke="#15296B" stroke-width="6" stroke-linecap="round"/>
+    <path d="M18 232l-8 10M222 228l9 10" stroke="#E0A42E" stroke-width="4" stroke-linecap="round"/>
+    <!-- the cat, curled into a loaf -->
+    <path d="M40 198C34 150 70 118 124 116C178 114 210 144 208 190C206 214 178 224 124 224C76 224 42 220 40 198Z" fill="#1C1A17"/>
+    <path d="M128 124C160 124 188 140 196 170" fill="none" stroke="#3B4566" stroke-width="8" stroke-linecap="round" opacity=".8"/>
+    <path d="M150 134C172 142 186 156 192 176" fill="none" stroke="#2E2A26" stroke-width="6" stroke-linecap="round"/>
+    <!-- head, tucked down on the paws -->
+    <path d="M50 196C46 162 66 140 96 140C126 140 142 160 140 192C138 210 120 218 96 218C70 218 52 212 50 196Z" fill="#26221E"/>
+    <path d="M56 160L50 116L84 144Z" fill="#1C1A17"/>
+    <path d="M108 142L134 108L138 154Z" fill="#1C1A17"/>
+    <path d="M60 152L57 128L76 146Z" fill="#8A4A48" opacity=".7"/>
+    <path d="M114 144L129 124L131 150Z" fill="#8A4A48" opacity=".6"/>
+    <path d="M62 150C70 144 82 142 92 144" fill="none" stroke="#3B4566" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+    <!-- paws and tail wrapped round the front -->
+    <path d="M62 214C70 222 92 224 110 220" fill="none" stroke="#2E2A26" stroke-width="10" stroke-linecap="round"/>
+    <path d="M206 192C210 214 188 228 150 230C126 231 112 228 100 224" fill="none" stroke="#1C1A17" stroke-width="13" stroke-linecap="round"/>
+    <path d="M198 206C192 218 174 222 156 223" fill="none" stroke="#3B4566" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+  </g>
+  <!-- closed eyes, nose and whiskers, put in last with a fine brush -->
+  <g fill="none" stroke="#E9C98E" stroke-width="2.6" stroke-linecap="round">
+    <path d="M68 180q8 6 16 0M100 178q8 6 16 -1"/>
+  </g>
+  <path d="M89 191l3.5 3.5 3.5-3.5Z" fill="#C97B7B"/>
+  <g fill="none" stroke="#F3ECDF" stroke-width="1" stroke-linecap="round" opacity=".85">
+    <path d="M82 194C64 191 50 193 36 198M82 198C66 199 54 204 44 210M104 193C122 190 138 192 152 197M104 197C120 199 132 204 142 210"/>
+  </g>
+</svg>
