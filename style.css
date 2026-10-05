@@ -1180,6 +1180,8 @@ button, input, select, textarea { font: inherit; color: inherit; }
 }
 .map__label { font-family: var(--font-mono); font-size: 11px; fill: var(--ink); }
 .map__tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.5px; fill: var(--paper); }
+.map__bullet { font-family: var(--font-body); font-size: 13px; font-weight: 700; fill: #fff; }
+.map__park { font-size: 11px; letter-spacing: 3px; text-anchor: middle; }
 .map__quarter {
   font-family: var(--font-display);
   font-size: 26px;

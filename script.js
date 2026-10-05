@@ -11,15 +11,16 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   /* ------------------------------------------------------------------
-     Opening hours, computed in Goa time (Asia/Kolkata)
+     Opening hours, computed in Brooklyn time (America/New_York)
      ------------------------------------------------------------------ */
-  const HOURS = { open: 8 * 60, close: 19 * 60 + 30, closedDay: 1 }; // minutes; Monday closed
+  const HOURS = { open: 7 * 60, close: 18 * 60, closedDay: 1 }; // minutes; Monday closed
+  const TIME_ZONE = 'America/New_York';
   const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const WEEKDAY_INDEX = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
 
   function goaNow(date = new Date()) {
     const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'Asia/Kolkata',
+      timeZone: TIME_ZONE,
       weekday: 'short',
       year: 'numeric',
       month: '2-digit',
@@ -40,17 +41,17 @@
     const openToday = now.day !== HOURS.closedDay;
     if (openToday && now.minutes >= HOURS.open && now.minutes < HOURS.close) {
       const left = HOURS.close - now.minutes;
-      return { open: true, text: left <= 30 ? 'Open now · closing soon, at 7:30 pm' : 'Open now · closes 7:30 pm' };
+      return { open: true, text: left <= 30 ? 'Open now · closing soon, at 6:00 pm' : 'Open now · closes 6:00 pm' };
     }
     if (openToday && now.minutes < HOURS.open) {
-      return { open: false, text: 'Closed · opens today 8:00 am' };
+      return { open: false, text: 'Closed · opens today 7:00 am' };
     }
     // Find the next open day.
     let next = (now.day + 1) % 7;
     if (next === HOURS.closedDay) next = (next + 1) % 7;
     const isTomorrow = next === (now.day + 1) % 7;
     const prefix = now.day === HOURS.closedDay ? 'Closed today' : 'Closed';
-    return { open: false, text: `${prefix} · opens ${isTomorrow ? 'tomorrow' : DAY_NAMES[next]} 8:00 am` };
+    return { open: false, text: `${prefix} · opens ${isTomorrow ? 'tomorrow' : DAY_NAMES[next]} 7:00 am` };
   }
 
   function renderHours() {
@@ -235,7 +236,9 @@
       phone: (v) => {
         const digits = v.replace(/[\s\-().]/g, '');
         if (!digits) return 'We need a number to confirm the booking.';
-        if (!/^\+?\d{10,13}$/.test(digits)) return 'That doesn’t look like a phone number — ten digits is perfect.';
+        if (!/^(\+?1)?\d{10}$/.test(digits) && !/^\+\d{11,14}$/.test(digits)) {
+          return 'That doesn’t look like a phone number — ten digits, area code first, is perfect.';
+        }
         return '';
       },
       date: (v) => {
@@ -280,7 +283,7 @@
     });
 
     const prettyDate = (iso) =>
-      parseISO(iso).toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' });
+      parseISO(iso).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
