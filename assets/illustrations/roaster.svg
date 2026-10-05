@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <!-- chimney -->
+  <path d="M112 64V14H124V64Z" fill="#1C1A17"/>
+  <rect x="108" y="10" width="20" height="8" fill="#1C1A17"/>
+  <!-- hopper -->
+  <path d="M48 18H92L80 42H60Z" fill="#E0A42E"/>
+  <rect x="64" y="40" width="12" height="12" fill="#C68A1C"/>
+  <!-- drum body -->
+  <rect x="26" y="50" width="104" height="64" rx="6" fill="#1F3A93"/>
+  <circle cx="62" cy="82" r="22" fill="#15296B"/>
+  <circle cx="62" cy="82" r="13" fill="#D9E0F1"/>
+  <circle cx="62" cy="82" r="4" fill="#15296B"/>
+  <rect x="96" y="62" width="22" height="8" rx="2" fill="#FBF7F0"/>
+  <rect x="96" y="76" width="22" height="8" rx="2" fill="#E0A42E"/>
+  <!-- legs -->
+  <rect x="34" y="114" width="8" height="32" fill="#1C1A17"/><rect x="114" y="114" width="8" height="32" fill="#1C1A17"/>
+  <!-- cooling tray -->
+  <ellipse cx="78" cy="132" rx="56" ry="13" fill="#1C1A17"/>
+  <ellipse cx="78" cy="130" rx="48" ry="9" fill="#8A3418"/>
+  <g fill="#5B2410"><ellipse cx="60" cy="129" rx="3.5" ry="2.2"/><ellipse cx="74" cy="132" rx="3.5" ry="2.2"/><ellipse cx="90" cy="128" rx="3.5" ry="2.2"/><ellipse cx="102" cy="132" rx="3.5" ry="2.2"/><ellipse cx="82" cy="135" rx="3.5" ry="2.2"/><ellipse cx="66" cy="135" rx="3.5" ry="2.2"/></g>
+  <rect x="74" y="140" width="8" height="10" fill="#1C1A17"/>
+</svg>

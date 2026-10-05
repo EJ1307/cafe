@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220">
+  <!-- espresso jug pouring -->
+  <path d="M120 22H170L164 64H126Z" fill="#1F3A93"/>
+  <path d="M170 30C184 30 186 52 166 54" fill="none" stroke="#1F3A93" stroke-width="7"/>
+  <path d="M120 22L106 30L124 34Z" fill="#1F3A93"/>
+  <path d="M106 32C100 44 98 58 100 84" fill="none" stroke="#8A3418" stroke-width="5" stroke-linecap="round"/>
+  <!-- glass -->
+  <path d="M46 102H154L144 202C143 208 138 212 132 212H68C62 212 57 208 56 202Z" fill="#D9E0F1"/>
+  <path d="M52 160C70 154 90 166 110 160C126 155 140 158 150 162L144 202C143 208 138 212 132 212H68C62 212 57 208 56 202Z" fill="#8A3418"/>
+  <path d="M64 118L70 196" stroke="#FBF7F0" stroke-width="5" stroke-linecap="round"/>
+  <!-- scoop of dodol ice cream -->
+  <path d="M60 110C56 82 76 66 100 66C124 66 144 82 140 110C130 116 118 112 108 116C96 120 84 112 74 116C68 118 62 114 60 110Z" fill="#E9C98E"/>
+  <path d="M76 84C80 78 88 74 96 74" fill="none" stroke="#FBF7F0" stroke-width="5" stroke-linecap="round"/>
+  <path d="M100 84C108 92 112 102 110 116" fill="none" stroke="#8A3418" stroke-width="5" stroke-linecap="round"/>
+  <!-- rim -->
+  <rect x="42" y="100" width="116" height="7" rx="3" fill="#1F3A93"/>
+  <!-- spoon -->
+  <path d="M140 96L178 58" stroke="#1C1A17" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <!-- steam -->
+  <g fill="none" stroke="#9EB0DD" stroke-width="4" stroke-linecap="round">
+    <path d="M56 50C48 40 64 32 56 20"/><path d="M84 46C76 36 92 28 84 16"/><path d="M112 50C104 40 120 32 112 20"/>
+  </g>
+  <!-- peel / tray -->
+  <rect x="8" y="112" width="144" height="12" rx="3" fill="#1C1A17"/>
+  <rect x="12" y="122" width="136" height="6" fill="#5B3A1E"/>
+  <!-- three poee -->
+  <path d="M18 112C18 92 30 80 48 80C66 80 78 92 78 112Z" fill="#D9A257"/>
+  <path d="M82 112C82 92 94 80 112 80C130 80 142 92 142 112Z" fill="#D9A257"/>
+  <path d="M46 112C46 86 62 70 80 70C98 70 114 86 114 112Z" fill="#E9C27A"/>
+  <g fill="#FBF7F0" opacity=".9">
+    <circle cx="66" cy="86" r="1.8"/><circle cx="78" cy="80" r="1.8"/><circle cx="92" cy="84" r="1.8"/><circle cx="72" cy="96" r="1.8"/><circle cx="88" cy="94" r="1.8"/><circle cx="100" cy="98" r="1.8"/><circle cx="60" cy="102" r="1.8"/>
+    <circle cx="34" cy="92" r="1.6"/><circle cx="28" cy="102" r="1.6"/><circle cx="126" cy="92" r="1.6"/><circle cx="132" cy="102" r="1.6"/>
+  </g>
+</svg>
