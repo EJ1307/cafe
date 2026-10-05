@@ -16,6 +16,7 @@ assets/
   tile.svg              the azulejo tile, used as a repeating background
   favicon.svg           tile mark
   apple-touch-icon.png  180×180 home-screen icon
+  fonts/                self-hosted WOFF2 files (Latin subset) + their OFL licences
   og-image.png          1200×630 social share image
   illustrations/        small SVG drawings (bebinca, pour-over, roaster…)
 ```
@@ -65,7 +66,7 @@ Once you have the real domain, replace `https://susegadcoffee.in/` in the `<head
 --font-mono: "DM Mono"      prices, hours, small labels
 ```
 
-If you change the fonts, update the Google Fonts `<link>` in the `<head>` of both HTML files too. The SVG drawings use hard-coded hex values that match the palette; search for the old hex value if you change a colour.
+The fonts are self-hosted from `assets/fonts/` (Latin subsets only, declared with `@font-face` at the top of `style.css`), so the site makes no third-party requests. All three families are under the SIL Open Font License; the licence files sit next to the fonts. To swap a font, drop the new `.woff2` files into `assets/fonts/`, update the `@font-face` blocks and the custom property, and update the `<link rel="preload">` in the `<head>` of both HTML files. None of the three fonts has a rupee glyph, so `₹` falls back to the system font, which every current OS supports. The SVG drawings use hard-coded hex values that match the palette; search for the old hex value if you change a colour.
 
 **Menu.** Each section of the menu is a `<div role="tabpanel">` in `index.html`. An item looks like this:
 
