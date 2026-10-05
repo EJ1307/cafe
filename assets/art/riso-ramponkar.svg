@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <title>Ramponkar at Dawn — risograph by Leela D'Mello</title>
+  <defs>
+    <pattern id="dots" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+      <circle cx="3" cy="3" r="1.25" fill="#2B4AA8"/>
+    </pattern>
+    <pattern id="dots-pink" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-15)">
+      <circle cx="2.5" cy="2.5" r="1.1" fill="#EC6A5C"/>
+    </pattern>
+    <pattern id="grain" width="7" height="7" patternUnits="userSpaceOnUse">
+      <circle cx="1" cy="2" r=".5" fill="#FBF8F2"/><circle cx="5" cy="5.5" r=".45" fill="#FBF8F2"/><circle cx="4" cy="1" r=".35" fill="#FBF8F2"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="300" fill="#F7F1E6"/>
+  <!-- pink drum (slightly mis-registered, as riso does) -->
+  <g transform="translate(2.5 -1.5)" style="mix-blend-mode:multiply">
+    <circle cx="268" cy="118" r="62" fill="#EC6A5C"/>
+    <rect x="20" y="168" width="360" height="112" fill="url(#dots-pink)"/>
+    <path d="M20 168H380V176H20Z" fill="#EC6A5C"/>
+    <path d="M238 206H300M246 218H292M232 244H306M250 256H288M244 268H296" stroke="#EC6A5C" stroke-width="5" stroke-linecap="round"/>
+    <path d="M62 64c10-6 20-6 30 0M84 50c7-4 14-4 20 0" fill="none" stroke="#EC6A5C" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <!-- blue drum -->
+  <g style="mix-blend-mode:multiply">
+    <rect x="20" y="190" width="360" height="90" fill="url(#dots)"/>
+    <path d="M20 186C70 180 110 192 160 186S260 178 310 186 360 190 380 186V200C340 206 300 196 250 202S150 208 100 200 40 198 20 202Z" fill="#2B4AA8"/>
+    <path d="M20 230C80 224 140 236 200 230S320 222 380 230V238C320 232 260 242 200 238S80 230 20 238Z" fill="#2B4AA8"/>
+    <!-- canoe with outrigger -->
+    <path d="M86 176C120 186 220 188 286 170L300 160C286 164 270 168 250 170L94 170C90 170 86 172 86 176Z" fill="#2B4AA8"/>
+    <path d="M118 170L132 150M200 172L210 150" stroke="#2B4AA8" stroke-width="3"/>
+    <path d="M120 148H222" stroke="#2B4AA8" stroke-width="3" stroke-linecap="round"/>
+    <path d="M218 150C232 152 244 154 252 158" stroke="#2B4AA8" stroke-width="5" stroke-linecap="round"/>
+    <!-- the ramponkar, standing, with a pole -->
+    <path d="M176 170V132" stroke="#2B4AA8" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="176" cy="122" r="7" fill="#2B4AA8"/>
+    <path d="M172 112h8l6 6h-20Z" fill="#2B4AA8"/>
+    <path d="M176 140L190 130M176 148L192 142M158 92L228 222" stroke="#2B4AA8" stroke-width="3" stroke-linecap="round"/>
+    <path d="M60 76c8-5 16-5 24 0" fill="none" stroke="#2B4AA8" stroke-width="2.6" stroke-linecap="round"/>
+  </g>
+  <rect width="400" height="300" fill="url(#grain)" opacity=".6"/>
+  <!-- paper margin and pencil marks -->
+  <path d="M0 0H400V300H0Z M20 20V280H380V20Z" fill="#F7F1E6" fill-rule="evenodd"/>
+  <text x="20" y="294" font-family="Georgia, serif" font-style="italic" font-size="7.5" fill="#8A8273">17/40</text>
+  <text x="380" y="294" text-anchor="end" font-family="Georgia, serif" font-style="italic" font-size="7.5" fill="#8A8273">L. D'Mello</text>
+</svg>

@@ -11,15 +11,16 @@
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   /* ------------------------------------------------------------------
-     Opening hours, computed in Goa time (Asia/Kolkata)
+     Opening hours, computed in Brooklyn time (America/New_York)
      ------------------------------------------------------------------ */
-  const HOURS = { open: 8 * 60, close: 19 * 60 + 30, closedDay: 1 }; // minutes; Monday closed
+  const HOURS = { open: 7 * 60, close: 18 * 60, closedDay: 1 }; // minutes; Monday closed
+  const TIME_ZONE = 'America/New_York';
   const DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
   const WEEKDAY_INDEX = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
 
   function goaNow(date = new Date()) {
     const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'Asia/Kolkata',
+      timeZone: TIME_ZONE,
       weekday: 'short',
       year: 'numeric',
       month: '2-digit',
@@ -40,17 +41,17 @@
     const openToday = now.day !== HOURS.closedDay;
     if (openToday && now.minutes >= HOURS.open && now.minutes < HOURS.close) {
       const left = HOURS.close - now.minutes;
-      return { open: true, text: left <= 30 ? 'Open now · closing soon, at 7:30 pm' : 'Open now · closes 7:30 pm' };
+      return { open: true, text: left <= 30 ? 'Open now · closing soon, at 6:00 pm' : 'Open now · closes 6:00 pm' };
     }
     if (openToday && now.minutes < HOURS.open) {
-      return { open: false, text: 'Closed · opens today 8:00 am' };
+      return { open: false, text: 'Closed · opens today 7:00 am' };
     }
     // Find the next open day.
     let next = (now.day + 1) % 7;
     if (next === HOURS.closedDay) next = (next + 1) % 7;
     const isTomorrow = next === (now.day + 1) % 7;
     const prefix = now.day === HOURS.closedDay ? 'Closed today' : 'Closed';
-    return { open: false, text: `${prefix} · opens ${isTomorrow ? 'tomorrow' : DAY_NAMES[next]} 8:00 am` };
+    return { open: false, text: `${prefix} · opens ${isTomorrow ? 'tomorrow' : DAY_NAMES[next]} 7:00 am` };
   }
 
   function renderHours() {
@@ -198,6 +199,70 @@
   }
 
   /* ------------------------------------------------------------------
+     On the walls: a lightbox for the artworks. Without JavaScript each
+     frame is a plain link to the full-size image.
+     ------------------------------------------------------------------ */
+  const lightbox = $('[data-lightbox]');
+  const works = $$('[data-work]');
+  if (lightbox && works.length && typeof lightbox.showModal === 'function') {
+    const lbImg = $('[data-lb-img]', lightbox);
+    const fields = {
+      num: $('[data-lb-num]', lightbox),
+      title: $('[data-lb-title]', lightbox),
+      artist: $('[data-lb-artist]', lightbox),
+      medium: $('[data-lb-medium]', lightbox),
+      price: $('[data-lb-price]', lightbox),
+    };
+    let current = 0;
+    let opener = null;
+
+    const show = (index) => {
+      current = (index + works.length) % works.length;
+      const link = works[current];
+      const item = link.closest('.work');
+      const img = $('img', link);
+      lbImg.src = img.currentSrc || img.src;
+      lbImg.alt = img.alt;
+      lbImg.width = img.width;
+      lbImg.height = img.height;
+      lbImg.style.aspectRatio = `${img.getAttribute('width')} / ${img.getAttribute('height')}`;
+      lbImg.style.borderRadius = item.classList.contains('work--oil') ? '50%' : '';
+      fields.num.textContent = `${$('.work__num', item).textContent} of ${String(works.length).padStart(2, '0')}`;
+      fields.title.innerHTML = $('.work__title', item).innerHTML;
+      fields.artist.innerHTML = $('.work__artist', item).innerHTML;
+      fields.medium.innerHTML = $('.work__medium', item).innerHTML;
+      fields.price.innerHTML = $('.work__price', item).innerHTML;
+    };
+
+    works.forEach((link, i) => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        opener = link;
+        show(i);
+        lightbox.showModal();
+        document.body.classList.add('nav-open');
+        $('[data-lightbox-close]', lightbox).focus();
+      });
+    });
+
+    $('[data-lightbox-close]', lightbox).addEventListener('click', () => lightbox.close());
+    $('[data-lightbox-prev]', lightbox).addEventListener('click', () => show(current - 1));
+    $('[data-lightbox-next]', lightbox).addEventListener('click', () => show(current + 1));
+    lightbox.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(current - 1);
+      if (e.key === 'ArrowRight') show(current + 1);
+    });
+    // a click on the dimmed backdrop (the dialog element itself) closes it
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) lightbox.close();
+    });
+    lightbox.addEventListener('close', () => {
+      document.body.classList.remove('nav-open');
+      if (opener) opener.focus();
+    });
+  }
+
+  /* ------------------------------------------------------------------
      Reservation form
      ------------------------------------------------------------------ */
   const form = $('[data-reserve-form]');
@@ -235,7 +300,9 @@
       phone: (v) => {
         const digits = v.replace(/[\s\-().]/g, '');
         if (!digits) return 'We need a number to confirm the booking.';
-        if (!/^\+?\d{10,13}$/.test(digits)) return 'That doesn’t look like a phone number — ten digits is perfect.';
+        if (!/^(\+?1)?\d{10}$/.test(digits) && !/^\+\d{11,14}$/.test(digits)) {
+          return 'That doesn’t look like a phone number — ten digits, area code first, is perfect.';
+        }
         return '';
       },
       date: (v) => {
@@ -280,7 +347,7 @@
     });
 
     const prettyDate = (iso) =>
-      parseISO(iso).toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'long' });
+      parseISO(iso).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
