@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180">
+  <!-- plate -->
+  <ellipse cx="120" cy="146" rx="104" ry="24" fill="#1F3A93"/>
+  <ellipse cx="120" cy="144" rx="95" ry="19" fill="#F6EEDF"/>
+  <ellipse cx="120" cy="146" rx="70" ry="12" fill="#E9DFCB"/>
+  <!-- coconut cream pool -->
+  <path d="M58 140C60 130 84 128 104 131C128 134 158 128 178 133C192 137 186 148 160 150C126 154 64 154 58 140Z" fill="#FBF7F0"/>
+  <!-- side face (in shade) -->
+  <path d="M168 66L194 48V118L168 136Z" fill="#A0401F"/>
+  <g fill="#8A3418">
+    <path d="M168 75L194 57V61L168 79Z"/><path d="M168 93L194 75V79L168 97Z"/><path d="M168 111L194 93V97L168 115Z"/><path d="M168 129L194 111V115L168 133Z"/>
+  </g>
+  <!-- front face: seven layers -->
+  <rect x="62" y="66" width="106" height="70" fill="#E0A42E"/>
+  <g fill="#B5651F">
+    <rect x="62" y="75" width="106" height="9"/><rect x="62" y="93" width="106" height="9"/><rect x="62" y="111" width="106" height="9"/><rect x="62" y="129" width="106" height="7"/>
+  </g>
+  <rect x="62" y="66" width="106" height="9" fill="#8A3418"/>
+  <!-- caramelised top -->
+  <path d="M62 66L88 48H194L168 66Z" fill="#8A3418"/>
+  <!-- cream poured over the corner -->
+  <path d="M74 66C76 56 92 50 108 52C120 54 124 60 120 66C118 72 114 74 114 82C114 88 106 88 106 82C106 76 104 72 98 72C92 72 92 80 92 92C92 98 84 98 84 92C84 82 82 74 74 72Z" fill="#FBF7F0"/>
+  <!-- spoon -->
+  <path d="M176 152L222 132" stroke="#1C1A17" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="170" cy="155" rx="11" ry="6" transform="rotate(-24 170 155)" fill="#1C1A17"/>
+</svg>

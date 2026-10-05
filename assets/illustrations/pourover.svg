@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 220">
+  <!-- kettle spout and stream -->
+  <path d="M8 34C30 34 52 30 70 46" fill="none" stroke="#1C1A17" stroke-width="9" stroke-linecap="round"/>
+  <path d="M72 50C80 60 84 70 86 84" fill="none" stroke="#8A3418" stroke-width="3" stroke-linecap="round"/>
+  <!-- carafe -->
+  <path d="M70 140C58 152 54 166 56 182C58 200 72 210 100 210C128 210 142 200 144 182C146 166 142 152 130 140Z" fill="#D9E0F1"/>
+  <path d="M57 176C64 172 82 170 100 172C118 174 136 172 143 176C144 196 132 208 100 208C68 208 56 196 57 176Z" fill="#8A3418"/>
+  <path d="M68 162C66 172 66 182 70 190" fill="none" stroke="#FBF7F0" stroke-width="4" stroke-linecap="round"/>
+  <rect x="74" y="126" width="52" height="18" rx="3" fill="#C2532F"/>
+  <rect x="74" y="132" width="52" height="3" fill="#A0401F"/>
+  <!-- dripper -->
+  <path d="M46 82H154L120 128H80Z" fill="#1F3A93"/>
+  <path d="M60 82L76 110M84 82L90 112M116 82L110 112M140 82L124 110" stroke="#15296B" stroke-width="3" stroke-linecap="round"/>
+  <path d="M46 82H154V88H46Z" fill="#15296B"/>
+  <rect x="76" y="126" width="48" height="6" rx="2" fill="#15296B"/>
+  <!-- filter paper -->
+  <path d="M52 82L58 72L64 82L70 72L76 82L82 72L88 82L94 72L100 82L106 72L112 82L118 72L124 82L130 72L136 82L142 72L148 82Z" fill="#FBF7F0"/>
+  <path d="M100 116V126" stroke="#8A3418" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
